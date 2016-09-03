@@ -19,7 +19,7 @@ def order_creation(request, *args, **kwargs):
     if not verify_webhook(request.body, header):
         return HttpResponse(status=401)
 
-    if check_order(order):
+    if not check_order(order):
         send_customer_email(order)
 
     return HttpResponse('Verified')
