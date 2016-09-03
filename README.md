@@ -1,4 +1,4 @@
-Installation:
+### Installation:
 
   git clone https://github.com/dominicyordan/webhooks_example
   
@@ -11,7 +11,7 @@ Installation:
   export SHOPIFY_APP_WEBHOOK_SECRET='example'
 
 
-Shopify webhook setup example:
+### Shopify webhook setup example:
 
   Event: Order creation
   
