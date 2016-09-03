@@ -1,0 +1,4 @@
+{% load i18n %}
+{% blocktrans %}
+There are non-English characters in your order's shipping address. Please use English characters only. Thank you.
+{% endblocktrans %}
