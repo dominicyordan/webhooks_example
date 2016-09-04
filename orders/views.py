@@ -13,16 +13,19 @@ from django.utils.translation import ugettext_lazy as _
 
 @csrf_exempt
 def order_creation(request, *args, **kwargs):
-    order = json.loads(request.body.decode())
-    header = request.META.get('HTTP_X_SHOPIFY_HMAC_SHA256')
+    if not request.method == 'POST':
+        return HttpResponse(status=404)
 
+    header = request.META.get('HTTP_X_SHOPIFY_HMAC_SHA256')
     if not verify_webhook(request.body, header):
         return HttpResponse(status=401)
 
+    order = json.loads(request.body.decode())
     if not check_order(order):
         send_customer_email(order)
 
     return HttpResponse('Verified')
+
 
 
 def verify_webhook(data, header):
