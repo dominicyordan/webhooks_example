@@ -27,7 +27,6 @@ def order_creation(request, *args, **kwargs):
     return HttpResponse('Verified')
 
 
-
 def verify_webhook(data, header):
     """
     Verifies the origin the of the request by checking the signature
